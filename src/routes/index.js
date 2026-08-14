@@ -2,6 +2,8 @@
 const authRoutes = require("./userRouter")
 
 const router = express.Router();
+
+
 router.use("/auth", authRoutes);
 
 router.get('/health', (req, res) => {

@@ -6,12 +6,8 @@ const { successResponse, errorResponse } = require("../../utils/response.js");
 
 exports.signUp = async (req, res) => {
     try {
-        console.log("Schema:", signUpSchema);
-        console.log("Schema type:", typeof signUpSchema);
-        console.log("safeParse type:", typeof signUpSchema?.safeParse);
 
         const result = signUpSchema.safeParse(req.body);
-;
 
         if (!result.success) {
             const errors = result.error.issues.map((issue) => ({
