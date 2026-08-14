@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 import invoiceIdGen from "../middlewares/invoiceId";
 
 const invoiceItemSchema = new mongoose.Schema(

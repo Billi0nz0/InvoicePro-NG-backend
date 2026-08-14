@@ -1,8 +1,9 @@
-const userIdGen = () => {
-  const prefix = "USR-";
-  const random = Math.random().toString(36).slice(2, 10).toUpperCase();
+const crypto = require("crypto");
 
-  return `${prefix}${random}`;
+const userIdGen = () => {
+  const random = crypto.randomBytes(4).toString("hex").toUpperCase();
+
+  return `INVPRO-${random}`;
 };
 
 export default userIdGen;
