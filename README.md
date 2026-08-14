@@ -599,5 +599,5 @@ ISC License - See LICENSE file for details
 
 ---
 
-**Last Updated:** 2024  
+**Last Updated:** 2026  
 **Repository:** https://github.com/121kelvinkane/InvoicePro-NG-backend
