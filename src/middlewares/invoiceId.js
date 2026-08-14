@@ -6,4 +6,4 @@ const invoiceIdGen = () => {
   return `INVPRO-${random}`;
 };
 
-export default invoiceIdGen;
+module.exports = invoiceIdGen;

@@ -6,4 +6,4 @@ const userIdGen = () => {
   return `INVPRO-${random}`;
 };
 
-export default userIdGen;
+module.exports = userIdGen;

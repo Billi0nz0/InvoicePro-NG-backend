@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-import userIdGen from "../middlewares/userId.js";
+const userIdGen = require("../middlewares/userId.js");
 
 const userSchema = new mongoose.Schema(
     {
@@ -33,4 +33,4 @@ userSchema.pre("save", async function () {
 
 const User = mongoose.model("User", userSchema);
 
-export default User;
+module.exports = User;
