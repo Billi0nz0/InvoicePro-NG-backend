@@ -4,7 +4,8 @@ const cors = require('cors');
 
 const env = require('./config/env');
 const routes = require('./routes');
-const authRoutes = require('./routes/auth.routes'); // <-- Added Auth Routes
+const authRoutes = require('./routes/auth.routes');
+const customerRoutes = require('./routes/customer.routes'); // <-- Added Customer Routes
 
 const app = express();
 
@@ -22,7 +23,8 @@ app.use(
 app.use(express.json());
 
 app.use('/api/v1', routes);
-app.use('/api/v1/auth', authRoutes); // <-- Connected Auth Routes
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/customers', customerRoutes); // <-- Connected Customer Routes
 
 app.use((err, req, res, next) => {
   console.error(err);
