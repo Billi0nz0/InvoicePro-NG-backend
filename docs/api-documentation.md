@@ -1,3 +1,9 @@
+# InvoicePro NG API Documentation
+
+> **Status:** Active development
+>
+> This document describes the currently implemented API endpoints for frontend integration. It will be updated as new endpoints, validation rules, error handling, and features are added.
+
 # InvoicePro NG Backend
 
 Backend API for InvoicePro NG. The API currently provides authentication, a health check, and customer management for the logged-in user.
