@@ -32,7 +32,7 @@ const registerUser = async (name, email, password) => {
   // Welcome email should not prevent registration
   sendEmail({
     to: newUser.email,
-    subject: "Welcome to Billionz",
+    subject: "Welcome to Invoice Pro",
     html: welcomeEmail({
       name: newUser.name,
     }),
