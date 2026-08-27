@@ -124,4 +124,4 @@ const emailVerificationTemplate = ({ name, verificationURL }) =>
     `,
 });
 
-export default emailVerificationTemplate;
+module.exports = emailVerificationTemplate;

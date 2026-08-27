@@ -226,4 +226,4 @@ const layOut = ({ title, subtitle, body }) => `
 </html>
 `;
 
-export default layOut;
+module.exports = layOut;

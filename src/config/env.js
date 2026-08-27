@@ -8,6 +8,7 @@ const env = {
   appUrl: process.env.APP_URL,
   appLogo: process.env.APP_LOGO,
   appTagline: process.env.APP_TAGLINE,
+  emailVerificationUrl: process.env.EMAIL_VERIFICATION_URL,
   resendApiKey: process.env.RESEND_API_KEY
 };
 

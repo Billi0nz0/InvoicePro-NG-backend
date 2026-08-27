@@ -1,8 +1,9 @@
 ﻿const bcrypt = require('bcryptjs');
 const crypto = require("crypto");
+const env = require("../config/env")
 const { generateToken } = require('../utils/jwt');
 const sendEmail = require("../services/email.service");
-import emailVerificationTemplate from '../emailTemplates/emailVerificationTemplate';
+const emailVerificationTemplate = require ("../emailTemplates/emailVerificationTemplate");
 
 // MOCK DATABASE (We will replace this with Prisma later)
 const users = [];
