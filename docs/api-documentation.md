@@ -17,10 +17,11 @@ Implemented:
 - Protected current-session endpoint
 - Create and view customers
 - Customer isolation by authenticated user
+- Persistent database storage
 
 Not implemented yet:
 
-- Persistent database storage
+
 - Update and delete customer endpoints
 - Invoices and invoice line items
 - Password reset, email verification, and user profile editing
@@ -120,7 +121,7 @@ All three fields are required. Example response (`201 Created`):
 	"data": {
 		"token": "<jwt>",
 		"user": {
-			"id": "1710000000000",
+			"UUID": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 			"name": "Ada Lovelace",
 			"email": "ada@example.com"
 		}
@@ -142,7 +143,7 @@ Request body:
 }
 ```
 
-Example response (`200 OK`) has the same shape as registration. Possible errors:
+Example response (`200 OK`) has the same shape as registration. Possible errors: (`401 Unauthorized`)
 
 #### `GET /auth/me`
 
@@ -162,7 +163,7 @@ Example response (`200 OK`):
 	"success": true,
 	"message": "You accessed a protected route!",
 	"user": {
-		"id": "1710000000000",
+		"UUID": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 		"iat": 1710000000,
 		"exp": 1710086400
 	}
@@ -186,7 +187,10 @@ Request body:
 	"name": "InvoicePro Ltd",
 	"email": "hello@invoicepro.example",
 	"phone": "+234 567 890",
-	"address": "1 Main Street"
+	"address": "1 Main Street",
+	"city":"Ikeja",
+	"state":"Lagos",
+	"country":"Nigeria",
 }
 ```
 
@@ -198,12 +202,15 @@ Example response (`201 Created`):
 {
 	"success": true,
 	"data": {
-		"id": "1710000000001",
-		"userId": "1710000000000",
+		"UUID": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
+		"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 		"name": "Invoicepro Ltd",
 		"email": "hello@invoicepro.example",
 		"phone": "+234 567 890",
 		"address": "1 Main Street",
+		"city":"Ikeja",
+		"state":"Lagos",
+		"country":"Nigeria",
 		"createdAt": "2026-08-26T12:00:00.000Z"
 	}
 }
@@ -220,12 +227,15 @@ Example response (`200 OK`):
 	"count": 1,
 	"data": [
 		{
-			"id": "1710000000001",
-			"userId": "1710000000000",
+			"UUID": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
+			"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 			"name": "Invoicepro Ltd",
 			"email": "hello@invoicepro.example",
 			"phone": "+234 567 890",
 			"address": "1 Main Street",
+			"city":"Ikeja",
+			"state":"Lagos",
+			"country":"Nigeria",
 			"createdAt": "2026-08-26T12:00:00.000Z"
 		}
 	]
@@ -249,12 +259,15 @@ Example response (`200 OK`):
 {
 	"success": true,
 	"data": {
-		"id": "1710000000001",
-		"userId": "1710000000000",
+		"UUID": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
+		"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 		"name": "Invoicepro Ltd",
 		"email": "hello@invoicepro.example",
 		"phone": "+234 567 890",
 		"address": "1 Main Street",
+		"city":"Ikeja",
+		"state":"Lagos",
+		"country":"Nigeria",
 		"createdAt": "2026-08-26T12:00:00.000Z"
 	}
 }
