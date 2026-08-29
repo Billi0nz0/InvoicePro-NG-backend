@@ -21,7 +21,6 @@ Implemented:
 
 Not implemented yet:
 
-
 - Update and delete customer endpoints
 - Invoices and invoice line items
 - Password reset, email verification, and user profile editing
@@ -121,7 +120,7 @@ All three fields are required. Example response (`201 Created`):
 	"data": {
 		"token": "<jwt>",
 		"user": {
-			"UUID": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
+			"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 			"name": "Ada Lovelace",
 			"email": "ada@example.com"
 		}
@@ -144,6 +143,12 @@ Request body:
 ```
 
 Example response (`200 OK`) has the same shape as registration. Possible errors: (`401 Unauthorized`)
+```json
+{
+	"success": false,
+	"message": "Invalid credentials"
+}
+```
 
 #### `GET /auth/me`
 
@@ -163,7 +168,7 @@ Example response (`200 OK`):
 	"success": true,
 	"message": "You accessed a protected route!",
 	"user": {
-		"UUID": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
+		"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 		"iat": 1710000000,
 		"exp": 1710086400
 	}
@@ -202,7 +207,6 @@ Example response (`201 Created`):
 {
 	"success": true,
 	"data": {
-		"UUID": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 		"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 		"name": "Invoicepro Ltd",
 		"email": "hello@invoicepro.example",
@@ -227,7 +231,6 @@ Example response (`200 OK`):
 	"count": 1,
 	"data": [
 		{
-			"UUID": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 			"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 			"name": "Invoicepro Ltd",
 			"email": "hello@invoicepro.example",
@@ -259,7 +262,6 @@ Example response (`200 OK`):
 {
 	"success": true,
 	"data": {
-		"UUID": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 		"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 		"name": "Invoicepro Ltd",
 		"email": "hello@invoicepro.example",
