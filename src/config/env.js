@@ -9,7 +9,8 @@ const env = {
   appLogo: process.env.APP_LOGO,
   appTagline: process.env.APP_TAGLINE,
   emailVerificationUrl: process.env.EMAIL_VERIFICATION_URL,
-  resendApiKey: process.env.RESEND_API_KEY
+  resendApiKey: process.env.RESEND_API_KEY,
+  resendFromEmail: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
 };
 
 module.exports = env;

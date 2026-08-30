@@ -2,39 +2,40 @@
 const { generateToken } = require('../utils/jwt');
 const sendEmail = require("../services/email.service");
 const welcomeEmail = require("../emailTemplates/welcomeTemplate");
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
-// MOCK DATABASE (We will replace this with Prisma later)
-const users = [];
-
-const registerUser = async (name, email, password) => {
-  const userExists = users.find(
-    (user) => user.email === email
-  );
+const registerUser = async (fullName, email, password) => {
+  //Check if user already exists in the database
+  const userExists = await prisma.user.findUnique({
+    where: { email }
+  });
 
   if (userExists) {
-    throw new Error("User already exists");
+    const error = new Error("User already exists");
+    error.statusCode = 400;
+    throw error;
   }
 
+  //Hash the password
   const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
 
-  const hashedPassword = await bcrypt.hash( password, salt );
+  //Create the user in the database using Prisma
+  const newUser = await prisma.user.create({
+    data: {
+      fullName,
+      email,
+      password: hashedPassword,
+    },
+  });
 
-  const newUser = {
-    id: Date.now().toString(),
-    name,
-    email,
-    password: hashedPassword,
-    createdAt: new Date().toISOString(),
-  };
-
-  users.push(newUser);
-
-  // Welcome email should not prevent registration
+  //Send welcome email (non-blocking)
   sendEmail({
     to: newUser.email,
-    subject: "Welcome to Invoice Pro",
+    subject: "Welcome to Billionz",
     html: welcomeEmail({
-      name: newUser.name,
+      name: newUser.fullName,
     }),
   }).catch((error) => {
     console.error(
@@ -43,10 +44,15 @@ const registerUser = async (name, email, password) => {
     );
   });
 
+  //Generate JWT token
   const token = generateToken(newUser.id);
 
   return {
-    user: newUser,
+    user: {
+      id: newUser.id,
+      fullName: newUser.fullName,
+      email: newUser.email,
+    },
     token,
     message: "Account created successfully.",
   };
