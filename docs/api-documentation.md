@@ -120,7 +120,7 @@ All three fields are required. Example response (`201 Created`):
 	"data": {
 		"token": "<jwt>",
 		"user": {
-			"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
+			"id": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 			"fullName": "Ada Lovelace",
 			"email": "ada@example.com"
 		}
@@ -168,7 +168,7 @@ Example response (`200 OK`):
 	"success": true,
 	"message": "You accessed a protected route!",
 	"user": {
-		"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
+		"id": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 		"iat": 1710000000,
 		"exp": 1710086400
 	}
@@ -207,7 +207,7 @@ Example response (`201 Created`):
 {
 	"success": true,
 	"data": {
-		"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
+		"id": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 		"fullName": "Invoicepro Ltd",
 		"email": "hello@invoicepro.example",
 		"phone": "+234 567 890",
@@ -231,7 +231,7 @@ Example response (`200 OK`):
 	"count": 1,
 	"data": [
 		{
-			"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
+			"id": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 			"fullName": "Invoicepro Ltd",
 			"email": "hello@invoicepro.example",
 			"phone": "+234 567 890",
@@ -262,7 +262,7 @@ Example response (`200 OK`):
 {
 	"success": true,
 	"data": {
-		"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
+		"id": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
 		"fullName": "Invoicepro Ltd",
 		"email": "hello@invoicepro.example",
 		"phone": "+234 567 890",
