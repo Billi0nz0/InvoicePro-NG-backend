@@ -106,7 +106,7 @@ Request body:
 
 ```json
 {
-	"name": "Ada Lovelace",
+	"fullName": "Ada Lovelace",
 	"email": "ada@example.com",
 	"password": "strong-password"
 }
@@ -121,7 +121,7 @@ All three fields are required. Example response (`201 Created`):
 		"token": "<jwt>",
 		"user": {
 			"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
-			"name": "Ada Lovelace",
+			"fullName": "Ada Lovelace",
 			"email": "ada@example.com"
 		}
 	}
@@ -189,7 +189,7 @@ Request body:
 
 ```json
 {
-	"name": "InvoicePro Ltd",
+	"fullName": "InvoicePro Ltd",
 	"email": "hello@invoicepro.example",
 	"phone": "+234 567 890",
 	"address": "1 Main Street",
@@ -199,7 +199,7 @@ Request body:
 }
 ```
 
-Only `name` is required. `email`, `phone`, and `address` can be added later.
+Only `fullName` is required. `email`, `phone`, and `address` can be added later.
 
 Example response (`201 Created`):
 
@@ -208,7 +208,7 @@ Example response (`201 Created`):
 	"success": true,
 	"data": {
 		"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
-		"name": "Invoicepro Ltd",
+		"fullName": "Invoicepro Ltd",
 		"email": "hello@invoicepro.example",
 		"phone": "+234 567 890",
 		"address": "1 Main Street",
@@ -232,7 +232,7 @@ Example response (`200 OK`):
 	"data": [
 		{
 			"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
-			"name": "Invoicepro Ltd",
+			"fullName": "Invoicepro Ltd",
 			"email": "hello@invoicepro.example",
 			"phone": "+234 567 890",
 			"address": "1 Main Street",
@@ -263,7 +263,7 @@ Example response (`200 OK`):
 	"success": true,
 	"data": {
 		"userId": "c7b12c8e-4f9a-4b1a-9b9b-1c8e4f9a4b1a",
-		"name": "Invoicepro Ltd",
+		"fullName": "Invoicepro Ltd",
 		"email": "hello@invoicepro.example",
 		"phone": "+234 567 890",
 		"address": "1 Main Street",
